@@ -1,4 +1,4 @@
-# QR in Braille Pattern Dots
+# QR in Dots
 ```
-yarn add qr-braille
+yarn add qr-dots
 ```
