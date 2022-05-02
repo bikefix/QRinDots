@@ -13,7 +13,7 @@
   </svg>
 </template>
 <script>
-  import qr from 'qr.js'
+  import { QRCode, ErrorCorrectLevel, QRNumber, QRAlphaNum, QR8BitByte, QRKanji } from 'qrcode-generator-ts/js'
   export default {
     props: {
       value: {
@@ -39,9 +39,12 @@
     },
     computed: {
       code(){
-        const qrcode = qr(this.value, { errorCorrectLevel: this.level })
-        const l = Array(qrcode.modules.length+2)
-        return [[...l],...qrcode.modules.map(r => [false,...r,false]),[...l]]
+        const qr = QRCode(0, 'L')
+        qr.addData(this.value)
+        qr.make()
+        console.log(qr)
+        const l = Array(qr.modules.length+2)
+        return [[...l],...qr.modules.map(r => [false,...r,false]),[...l]]
       },
       codeWidth(){
         let w = this.code.length
