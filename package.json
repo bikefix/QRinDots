@@ -8,5 +8,7 @@
     "type": "git",
     "url": "git@github.com:bikefix/QRinDots.git"
   },
-  "dependencies": {}
+  "dependencies": {
+    "qrcode-generator": "kazuhikoarase/qrcode-generator"
+  }
 }
