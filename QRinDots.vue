@@ -13,7 +13,8 @@
   </svg>
 </template>
 <script>
-  import { QRCode, ErrorCorrectLevel, QRNumber, QRAlphaNum, QR8BitByte, QRKanji } from 'qrcode-generator-ts/js'
+  // import { QRCode, ErrorCorrectLevel, QRNumber, QRAlphaNum, QR8BitByte, QRKanji } from 'qrcode-generator-ts'
+  import { QRCode } from 'qrcode-generator'
   export default {
     props: {
       value: {

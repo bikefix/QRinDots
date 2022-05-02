@@ -1,6 +1,6 @@
 {
   "name": "qr-dots",
-  "version": "1.0.1",
+  "version": "1.0.7",
   "main": "QRinDots.vue",
   "license": "MIT",
   "private": false,
@@ -8,7 +8,5 @@
     "type": "git",
     "url": "git@github.com:bikefix/QRinDots.git"
   },
-  "dependencies": {
-    "qr.js": "^0.0.0"
-  }
+  "dependencies": {}
 }
