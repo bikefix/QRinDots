@@ -14,12 +14,12 @@
 </template>
 <script>
   // import { QRCode, ErrorCorrectLevel, QRNumber, QRAlphaNum, QR8BitByte, QRKanji } from 'qrcode-generator-ts'
-  import { QRCode } from 'qrcode-generator'
+  import { qrcode2 } from 'qrcode-generator'
   export default {
     props: {
       value: {
         type: String,
-        default: "https://bikefix.co.uk/0000000000012345",
+        default: "https://bikefix.co.uk/012345",
       },
       level: {
         type: Number,
@@ -40,12 +40,23 @@
     },
     computed: {
       code(){
-        const qr = QRCode(0, 'L')
+        const qr = qrcode2(0, 'L')
         qr.addData(this.value)
         qr.make()
-        console.log(qr)
-        const l = Array(qr.modules.length+2)
-        return [[...l],...qr.modules.map(r => [false,...r,false]),[...l]]
+        
+        const length = qr.getModuleCount()
+        const l = Array(length+2)
+        let theDots = []
+        theDots.push(l)
+        for (let x = 0; x < length; x++) {
+          let theLine = []
+          for (let y = 0; y < length; y++) {
+            theLine.push(qr.isDark(x, y))
+          }
+          theDots.push([false,...theLine,false])
+        }
+        theDots.push(l)
+        return theDots
       },
       codeWidth(){
         let w = this.code.length
@@ -75,9 +86,8 @@
           let fromMid = i - (w / 2)
           v = ((fromMid * fromMid / w / 5) * (this.bend / 10)) + .55
         }
-
         return v
       }
     }
-  }
+}
 </script>
