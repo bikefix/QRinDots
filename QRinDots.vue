@@ -51,7 +51,7 @@
 </template>
 <script>
   // import { QRCode, ErrorCorrectLevel, QRNumber, QRAlphaNum, QR8BitByte, QRKanji } from 'qrcode-generator-ts'
-  import { qrcode2 } from 'qrcode-generator'
+  import { qrcode } from 'qrcode-generator'
   function randomElement(array) {
     const index = Math.floor(Math.random() * array.length)
     return array[index]
